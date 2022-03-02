@@ -155,3 +155,19 @@ def check_number_in_array(x, arr):
 
 print(check_number_in_array(1, [2, 4, 5, 6, 1])
       )
+
+
+# 14
+def isSortedBetter(arr, si):
+    l = len(arr)
+    # si=0
+    if si == l or si == l-1:
+        return True
+    if arr[si] > arr[si+1]:
+        return False
+    else:
+        return isSortedBetter(arr, si+1)
+
+
+print(isSortedBetter([2, 3, 4, 5, 1, 2, 3, 3, 9], 0))
+print(isSortedBetter([2, 3], 0))
