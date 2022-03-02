@@ -1,6 +1,11 @@
 # one base case is needed whenever we need recursion
 
 # 1
+
+
+from pickle import TRUE
+
+
 def factorial(n):
     if n == 0:
         return 1
@@ -61,14 +66,92 @@ def print_n_to_1(n):
     return
 
 
-x = int((input()))
-print_n_to_1(x)
+# x = int((input()))
+# print_n_to_1(x)
 
 
 # 8
 # nth Fibonacci sum -- 1,1,2,3,5,...
 # fib(n)=fib(n-1)+fib(n-2)
+# TWO BASE CASES NEEDED
 def fib(n):
+    if n == 2:
+        return 1
     if n == 1:
         return 1
     fib_n_1 = fib(n-1)
+    fib_n_2 = fib(n-2)
+    output = fib_n_1+fib_n_2
+    return output
+
+
+# x = int((input()))
+# print(fib(x))
+
+
+# 10
+# import sys
+# sys.setrecursionlimit(3000)
+
+
+# 11
+def is_sorted(my_list):
+    l = len(my_list)
+    if l == 0 or l == 1:
+        return True
+    if my_list[0] > my_list[1]:
+        return False
+    else:
+        return is_sorted(my_list[1:])
+        # isSmallerListSorted = is_sorted(my_list[1:])
+    # if isSmallerListSorted:
+    #     return True
+    # else:
+    #     return False
+
+
+print(is_sorted([2, 3, 4, 5, 1, 2, 3, 3, 9]))
+print(is_sorted([1, 2, 3]))
+
+
+# 12
+# Sum of array recursively
+def sum_of_array(arr):
+    l = len(arr)
+    if l == 0:
+        return 0
+    if l == 1:
+        return arr[0]
+    return arr[0] + sum_of_array(arr[1:])
+
+# break from between
+# def sum_of_array2(arr):
+#     l = len(arr)
+#     if l == 0:
+#         return 0
+#     if l == 1:
+#         return arr[0]
+#     return arr[0] + sum_of_array(arr[1:])
+
+
+print(sum_of_array([1, 2, 5, 6, 0, 6, 6, ]))
+
+# 13
+
+
+def check_number_in_array(x, arr):
+    l = len(arr)
+    if l == 0:
+        return 'Not found'
+    if l == 1:
+        if arr[0] == x:
+            return 'Found'
+        else:
+            return 'Not found'
+    findFirst = (arr[0] == x)
+    findRestArray = check_number_in_array(x, arr[1:])
+    return findFirst or findRestArray
+
+
+print(check_number_in_array(1, [2, 4, 5, 6, 1])
+      )
